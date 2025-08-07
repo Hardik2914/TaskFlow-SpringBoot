@@ -1,0 +1,77 @@
+### GET request to example server
+GET https://examples.http-client.intellij.net/get
+    ?generated-in=IntelliJ IDEA
+
+###
+POST http://localhost:8080/users/register
+Content-Type: application/json
+
+{
+  "username": "hardik",
+  "password": "1234",
+  "email": "hardik@example.com"
+}
+
+
+
+###
+POST http://localhost:8080/users/login
+Content-Type: application/json
+
+{
+  "username": "Hardik",
+  "password": "1234"
+}
+
+###
+POST http://localhost:8080/users/logout
+
+### Add a new task (make sure user is logged in first)
+POST http://localhost:8080/tasks
+Content-Type: application/json
+
+{
+  "title": "",
+  "description": ""
+}
+
+
+
+### Get tasks for the current logged-in user
+GET http://localhost:8080/tasks/mytasks
+
+
+### Delete a task by ID (e.g., task with ID 3)
+DELETE http://localhost:8080/tasks/delete/3
+
+### complete the task
+PUT http://localhost:8080/tasks/complete/2
+
+### to get all the compleated task
+GET http://localhost:8080/tasks/pagable?complete=true&page=1&size=3
+
+
+
+#### to get all the incompleate task
+#GET http://localhost:8080/tasks/returnIncompleate
+
+###to update a existing task
+PUT /tasks/update/3
+
+{
+  "title": "Updated Task Title",
+  "description": "New description goes here",
+  "completed": true,
+}
+### Search for tasks with keyword "spring"
+GET http://localhost:8080/tasks/search?Keyword=spring&page=0&size=5
+
+### to request csv file
+GET http://localhost:8080/tasks/export/csv
+
+### to requst a pdf file
+GET http://localhost:8080/tasks/export/pdf
+
+
+### to get the dashboard
+GET http://localhost:8080/tasks/dashboard?userId=1
